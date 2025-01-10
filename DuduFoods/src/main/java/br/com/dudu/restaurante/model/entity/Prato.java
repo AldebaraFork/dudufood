@@ -1,4 +1,4 @@
-package br.com.dudu.restaurante.model;
+package br.com.dudu.restaurante.model.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
