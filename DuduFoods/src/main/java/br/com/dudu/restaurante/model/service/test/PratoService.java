@@ -1,6 +1,7 @@
 package br.com.dudu.restaurante.model.service.test;
 
 import br.com.dudu.restaurante.model.entity.Prato;
+import br.com.dudu.restaurante.model.util.JPAUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,12 +17,12 @@ public class PratoService {
         macarrao.setDisponibilidade(true);
         macarrao.setPreco(BigDecimal.valueOf(12.50));
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("DuduFood");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        JPAUtil.getEntityManagerDuduFoods();
         entityManager.getTransaction().begin();
         entityManager.persist(macarrao);
         entityManager.getTransaction().commit();
         entityManager.close();
 
+        System.out.println(macarrao.toString());
     }
 }
