@@ -20,13 +20,11 @@
 
     </dependencies>
     <build>
-
         <resources>
             <resource>
-                <directory>D:/dudufood/DuduFoods/src/main/META-INF</directory>
+                <directory>src/main/resources</directory>
             </resource>
         </resources>
-
     </build>
 
 
