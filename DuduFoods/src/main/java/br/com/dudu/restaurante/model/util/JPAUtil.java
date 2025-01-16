@@ -6,8 +6,8 @@ import javax.persistence.Persistence;
 
 public class JPAUtil {
 
-    private static final EntityManagerFactory duduFoods = Persistence.createEntityManagerFactory("DuduFoods");
+    private static final EntityManagerFactory DuduFoods = Persistence.createEntityManagerFactory("DuduFoods");
     public static EntityManager getEntityManagerDuduFoods() {
-        return duduFoods.createEntityManager();
+        return DuduFoods.createEntityManager();
     }
 }
