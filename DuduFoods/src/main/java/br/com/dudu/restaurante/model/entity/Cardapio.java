@@ -5,9 +5,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "pratos")
-public class Prato {
+@Table(name = "cardapio")
+public class Cardapio {
 
+    //PROPRIEDADES DA ENTIDADE
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -15,11 +16,12 @@ public class Prato {
     private String descricao;
     private boolean disponibilidade;
     private BigDecimal preco;
+    private Categoria categoria;
 
     @Column(name = "data_de_registro")
     private LocalDateTime dataDeRegistro = LocalDateTime.now();
 
-    public Prato() {
+    public Cardapio() {
     }
 
     public LocalDateTime getDataDeRegistro() {

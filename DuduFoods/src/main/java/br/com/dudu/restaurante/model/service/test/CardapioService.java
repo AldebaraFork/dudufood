@@ -1,46 +1,46 @@
 package br.com.dudu.restaurante.model.service.test;
 
-import br.com.dudu.restaurante.model.entity.Prato;
+import br.com.dudu.restaurante.model.entity.Cardapio;
 import br.com.dudu.restaurante.model.util.JPAUtil;
-import br.com.dudu.restaurante.model.dao.pratoDao;
+import br.com.dudu.restaurante.model.dao.CardapioDao;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 
-public class PratoService {
+public class CardapioService {
 
     public static void main(String[] args) {
 
-        Prato macarrao = new Prato();
+        Cardapio macarrao = new Cardapio();
         macarrao.setNome("Macarrao ao molho branco");
         macarrao.setDescricao("Molho branco caseiro, com noz moscada e brócolis");
         macarrao.setDisponibilidade(true);
         macarrao.setPreco(BigDecimal.valueOf(12.50));
 
-        Prato strogonoff = new Prato();
+        Cardapio strogonoff = new Cardapio();
 
 
         EntityManager entityManager = JPAUtil.getEntityManagerDuduFoods();
-        pratoDao pratoDao = new pratoDao(entityManager);
+        CardapioDao CardapioDao = new CardapioDao(entityManager);
         entityManager.getTransaction().begin();
-        pratoDao.cadastrar(macarrao);
+        CardapioDao.cadastrar(macarrao);
         entityManager.flush();
-        pratoDao.cadastrar(strogonoff);
+        CardapioDao.cadastrar(strogonoff);
 
 
         strogonoff.setPreco(BigDecimal.valueOf(12.50));
-        pratoDao.atualizar(strogonoff);
+        CardapioDao.atualizar(strogonoff);
 
-        System.out.println("prato consultado: " + pratoDao.visualizar(2));
+        System.out.println("prato consultado: " + CardapioDao.visualizar(2));
 
 
 
 
 
         strogonoff.setPreco(BigDecimal.valueOf(15.50));
-        pratoDao.atualizar(strogonoff);
+        CardapioDao.atualizar(strogonoff);
 
-        System.out.println("prato consultado: " +pratoDao.visualizar(2));
+        System.out.println("prato consultado: " + CardapioDao.visualizar(2));
 
         entityManager.close();
     }
