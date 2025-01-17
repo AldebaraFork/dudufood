@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 
 public class PratoService {
+
     public static void main(String[] args) {
 
         Prato macarrao = new Prato();
@@ -16,13 +17,31 @@ public class PratoService {
         macarrao.setDisponibilidade(true);
         macarrao.setPreco(BigDecimal.valueOf(12.50));
 
+        Prato strogonoff = new Prato();
+
+
         EntityManager entityManager = JPAUtil.getEntityManagerDuduFoods();
         pratoDao pratoDao = new pratoDao(entityManager);
         entityManager.getTransaction().begin();
         pratoDao.cadastrar(macarrao);
-        entityManager.getTransaction().commit();
-        entityManager.close();
+        entityManager.flush();
+        pratoDao.cadastrar(strogonoff);
 
-        System.out.println(macarrao.toString());
+
+        strogonoff.setPreco(BigDecimal.valueOf(12.50));
+        pratoDao.atualizar(strogonoff);
+
+        System.out.println("prato consultado: " + pratoDao.visualizar(2));
+
+
+
+
+
+        strogonoff.setPreco(BigDecimal.valueOf(15.50));
+        pratoDao.atualizar(strogonoff);
+
+        System.out.println("prato consultado: " +pratoDao.visualizar(2));
+
+        entityManager.close();
     }
 }

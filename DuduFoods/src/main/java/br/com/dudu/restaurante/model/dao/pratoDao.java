@@ -23,7 +23,7 @@ public class pratoDao {
         return this.entityManager.find(Prato.class, id);
     }
 
-    public void autalizar(final Prato prato){
+    public void atualizar(final Prato prato){
         this.entityManager.merge(prato);
     }
 
