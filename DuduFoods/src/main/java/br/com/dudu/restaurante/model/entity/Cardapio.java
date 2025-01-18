@@ -16,6 +16,7 @@ public class Cardapio {
     private String descricao;
     private boolean disponibilidade;
     private BigDecimal preco;
+    @ManyToOne
     private Categoria categoria;
 
     @Column(name = "data_de_registro")
