@@ -25,6 +25,15 @@ public class Cardapio {
     public Cardapio() {
     }
 
+    public Cardapio(String nome, String descricao, boolean disponibilidade, BigDecimal preco, Categoria categoria, LocalDateTime dataDeRegistro) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.disponibilidade = disponibilidade;
+        this.preco = preco;
+        this.categoria = categoria;
+        this.dataDeRegistro = dataDeRegistro;
+    }
+
     public LocalDateTime getDataDeRegistro() {
         return dataDeRegistro;
     }
@@ -65,7 +74,7 @@ public class Cardapio {
         this.preco = preco;
     }
 
-    public boolean isDisponibilidade() {
+    public boolean getDisponibilidade() {
         return disponibilidade;
     }
 
@@ -73,6 +82,9 @@ public class Cardapio {
         this.disponibilidade = disponibilidade;
     }
 
+    public void setCategoria(Categoria categoria){
+        this.categoria = categoria;
+    }
     @Override
     public String toString() {
         return "Prato{" +
